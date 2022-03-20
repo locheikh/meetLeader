@@ -1,4 +1,4 @@
-const express = require('express')
+/*const express = require('express')
 
 // Create express instance
 const app = express()
@@ -22,4 +22,15 @@ if (require.main === module) {
     console.log(`API server listening on port ${port}`)
   })
 }
+*/
 
+const bodyParser = require('body-parser')
+const app = require('express')()
+
+app.use(bodyParser.json())
+
+app.all('/test', (req, res) => {
+  res.json({ data: 'data' })
+})
+
+module.exports = app
